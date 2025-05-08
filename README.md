@@ -67,7 +67,7 @@ Ouvrir `index.html` dans le navigateur.
 ---
 
 
-CE PROJET FAIS PARTIE DU PROJET TOSIA (Toolkits Open Source for Interactive Applications)
+## CE PROJET FAIS PARTIE DU PROJET TOSIA (Toolkits Open Source for Interactive Applications)
 
 ## ✨ À propos du projet TOSIA
 
