@@ -1,0 +1,367 @@
+:root {
+    --clr-bg: #f9fafb;
+    --clr-card: #ffffff;
+    --clr-primary: #2563eb;
+    --clr-primary-dark: #1e40af;
+    --clr-danger: #dc2626;
+    --clr-secondary: #30517e;
+    --clr-text: #111827;
+    --radius: .75rem;
+    --shadow: 0 1px 4px rgba(0, 0, 0, .06);
+}
+
+[data-theme="dark"] {
+    --clr-bg: #0f172a;
+    --clr-card: #1e293b;
+    --clr-text: #f1f5f9;
+    --clr-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+}
+
+/* Reset et styles de base */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    /* border: solid red; */
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background .3s, color .3s;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    background: var(--clr-primary);
+    color: inherit;
+    padding: 1rem 2rem;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+/* Container principal */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Formulaire */
+#promptForm {
+    background: var(--clr-card);
+    padding: 1rem;
+    border-radius: var(--radius);
+    gap: 1rem;
+    width: 10rem;
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+}
+
+#promptForm.expanded {
+    max-height: 100rem;
+    opacity: 1;
+    width: 90%;
+    transform: translateX(0);
+    z-index: 10;
+    border: solid #ffffff;
+}
+
+#promptForm.collapsed {
+    background-color: var(--clr-primary);
+    max-height: 60px;
+    width: 5rem;
+    opacity: 1;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    transform: translateX(0);
+}
+
+#promptForm.collapsed>*:not(.form-header) {
+    display: none;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    flex: 1;
+}
+
+.form-header .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+#promptForm label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+#viewStorage{
+    display: none;
+}
+
+.modal-content :first-child{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:1rem;
+}
+
+#promptForm input,
+#promptForm textarea,
+#promptForm select {
+    width: 90%;
+    padding: .5rem .75rem;
+    border: 1px solid #d1d5db;
+    border-radius: var(--radius);
+    font: inherit;
+    background: transparent;
+    color: inherit;
+}
+
+#promptForm textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* Boutons et actions */
+.actions {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+
+#cancelEdit{
+    display:none
+}
+
+.btn {
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25rem;
+}
+
+.btn-primary {
+    background: red;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--clr-primary-dark);
+}
+
+.btn-danger {
+    background: var(--clr-danger);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: var(--clr-secondary);
+    color: #fff;
+}
+
+#saveBtn {
+    margin-top: 1rem;
+}
+
+/* Barre d'outils */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.toolbar input,
+.toolbar select {
+    padding: .5rem .75rem;
+    border: 1px solid #e4198f;
+    border-radius: var(--radius);
+    font: inherit;
+    background: transparent;
+    color: inherit;
+}
+
+/* Style pour les options de la liste déroulante */
+.toolbar select option {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+/* Style spécifique pour le select d'export */
+#exportSelect option {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+}
+
+[data-theme="dark"] .toolbar select option {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+}
+
+/* Liste des prompts */
+#promptList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+/* Cartes */
+.card {
+    background: var(--clr-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    transition: background .3s;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.card p {
+    margin: .25rem 0;
+    line-height: 1.4;
+    font-size: .9rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.tag {
+    background: #f800ae;
+    font-size: .75rem;
+    padding: .125rem .5rem;
+    border-radius: var(--radius);
+    color: white;
+}
+
+.card footer {
+    margin-top: auto;
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.card .btn {
+    font-size: .8rem;
+    flex: 1 1 auto;
+}
+
+.card pre{
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    font-family:inherit;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .5);
+}
+
+.modal.open {
+    display: flex;
+}
+
+.exportSelect .export-csv {
+    color: #0f172a;
+}
+
+.modal-content {
+    max-width: 700px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: auto;
+    background: var(--clr-card);
+    color: inherit;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+#confirmDownload{
+    margin-top: 1rem;
+}
+
+.modal-content pre {
+    max-height: 50vh; 
+    overflow-y: auto;
+}
+
+#fileInput{
+    display:none;
+}
+
+
+/* Media queries */
+@media(min-width:600px) {
+    #promptForm.expanded {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #promptForm.expanded textarea {
+        grid-column: 1/-1;
+    }
+
+    #promptForm.expanded .actions {
+        grid-column: 1/-1;
+    }
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "6d4ab474-3c95-467f-b8db-060d9ea55b6b",
+    "title": "Résumé d'article",
+    "description": "Synthèse en 5 points",
+    "keywords": [
+      "résumé",
+      "article"
+    ],
+    "prompt": "Peux‑tu résumer cet article en 5 points ?",
+    "createdAt": 1746609774830
+  },
+  {
+    "id": "7dc73043-eb16-41cb-b1b8-19a3e2ee9f1b",
+    "title": "Image onirique",
+    "description": "Paysage fantastique",
+    "keywords": [
+      "image",
+      "art",
+      "paysage"
+    ],
+    "prompt": "Crée une illustration d'un paysage fantastique au coucher du soleil, style aquarelle.",
+    "createdAt": 1746615288954
+  },
+  {
+    "id": "6bb0931c-8c6c-42ea-b319-9840230000df",
+    "title": "Base de prompt (CROFT)",
+    "description": "La base d'un bon prompt",
+    "keywords": [
+      "base",
+      "essentiel"
+    ],
+    "prompt": "La base d'un bon prompt\n\nContexte : ton profil, le stage visé, l’entreprise si tu en as une\n\nRôle : (ex. : recruteur RH, développeur expérimenté…)\n\nObjectif : convaincre, susciter l'intérêt…\n\nFormat : (lettre, plan structuré…)\n\nTon : (ex. : professionnel, enthousiaste…)\"",
+    "createdAt": 1746615314671
+  }
+]

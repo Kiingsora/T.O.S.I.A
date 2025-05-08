@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <link rel="icon" type="image/vnd.icon" href="assets/prompt_favicon.ico">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Promptstocker — Gestionnaire de Prompts</title>
+</head>
+
+<body>
+    <header>
+        <h1><img src="assets/prompt_favicon.ico" alt="Logo">Gestionnaire de Prompts </h1>
+        <form id="promptForm" class="collapsed">
+            <div class="form-header">
+
+                <button type="button" class="btn btn-primary" id="toggleForm">Add</button>
+            </div>
+            <input type="hidden" id="promptId" />
+            <div>
+                <label for="title">Titre</label>
+                <input type="text" id="title" required />
+            </div>
+            <div>
+                <label for="keywords">Mots-clés (séparés par des virgules)</label>
+                <input type="text" id="keywords" placeholder="ex: image, IA, art" />
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <input type="text" id="description" />
+            </div>
+            <div>
+                <label for="prompt">Texte du prompt</label>
+                <textarea id="prompt" required></textarea>
+            </div>
+            <div class="actions">
+                <button type="submit" class="btn btn-primary" id="saveBtn">Enregistrer</button>
+                <button type="button" class="btn" id="cancelEdit">Annuler</button>
+            </div>
+        </form>
+    </header>
+
+    <main class="container">
+        <div class="toolbar">
+            <input type="text" id="searchInput" placeholder="🔍 Rechercher, Nom, Mots-clés..." />
+            <select id="sortSelect">
+                <option value="newest">Trier : plus récents</option>
+                <option value="oldest">Trier : plus anciens</option>
+            </select>
+            <button type="button" class="btn btn-secondary" id="themeToggle">🌙 Mode sombre</button>
+            <select id="exportSelect" class="btn btn-secondary">
+                <option value="" disabled selected>📥 Importer/Exporter</option>
+                <option value="export-csv">📥 Exporter en CSV</option>
+                <option value="export-json">📥 Exporter en JSON</option>
+                <option value="export-md">📥 Exporter en Markdown</option>
+                <option value="import">📤 Importer en JSON</option>
+            </select>
+            <button type="button" class="btn btn-secondary" id="viewStorage">Voir stockage</button>
+        </div>
+
+        <section id="promptList"></section>
+    </main>
+    <div class="modal" id="storageModal">
+        <div class="modal-content">
+            <div>
+                <h2>Contenu du localStorage</h2>
+                <button class="btn btn-danger" id="closeModal">Fermer</button>
+            </div>
+            <pre id="storageContent"></pre>
+        </div>
+    </div>
+
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <div>
+                <h2>Prévisualisation export</h2>
+                <button class="btn btn-danger" id="closePreview">Fermer</button>
+            </div>
+            <pre id="previewContent"></pre>
+            <button class="btn btn-primary" id="confirmDownload">Télécharger</button>
+        </div>
+    </div>
+
+    <input type="file" id="fileInput" accept=".csv,.txt,.json" />
+    <script src="scripts/promptstocker.js" defer> console.log("test")</script>
+
+</body>
+
+</html>
