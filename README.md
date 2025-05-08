@@ -3,7 +3,7 @@
 **Promptstocker** est une application web développée en **HTML / CSS / JavaScript pur**.  
 Elle permet de **gérer, stocker, importer et exporter des prompts IA** en local, sans serveur, sans framework, et sans installation.
 
-> 🎯 Pensé pour le vibe-coding et l'exploration créative, ce projet est totalement forkable et modifiable.
+> 🎯 Projet vibe-coding et dans un cadre d'exploration créative, ce projet est totalement forkable, modifiable et open source.
 
 ---
 
@@ -40,7 +40,7 @@ promptstocker/
 
 1. Clonez ce dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/promptstocker.git
+   git clone https://github.com/kiingsora/promptstocker.git
    ```
 
 2. Ouvrez `index.html` dans votre navigateur. Aucun serveur requis.
@@ -60,7 +60,7 @@ Tu peux :
 - Supprimer ce que tu veux : ce dépôt est là pour être **bricolé**
 
 Tu peux aussi faire une **Pull Request** si tu veux proposer une amélioration à la branche `main`.  
-La branche `master` reste ma version personnelle de référence.
+La branche `master` reste ma version personnelle de référence : https://github.com/Kiingsora/PromptStocker/tree/main
 
 ---
 
