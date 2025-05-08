@@ -1,65 +1,76 @@
-# Prompstocker
+# 🧠 Promptstocker – Un gestionnaire de prompts simple, local et sans dépendances
 
-Une application web légère pour gérer, éditer, importer et exporter des prompts pour modèle de langage.
+**Promptstocker** est une application web développée en **HTML / CSS / JavaScript pur**.  
+Elle permet de **gérer, stocker, importer et exporter des prompts IA** en local, sans serveur, sans framework, et sans installation.
 
-## Fonctionnalités
+> 🎯 Pensé pour le vibe-coding et l'exploration créative, ce projet est totalement forkable et modifiable.
 
-- ✅ Création, édition et suppression de prompts
-- ✅ Import de fichiers `.json` et `.csv`
-- ✅ Export vers `.json`, `.csv` et `.md` (Markdown)
-- ✅ Mode sombre / clair (Je ne suis pas un barbare)
-- ✅ Prévisualisation avant export
-- ✅ Stockage local via `localStorage` (pas de serveur requis, pour vous sécuriser, pensez à exporter ;)
+---
 
+## 🚀 Fonctionnalités principales
 
-## Dossier
+- 📦 Ajout, édition, suppression de prompts
+- 📁 Import de prompts depuis CSV ou JSON
+- 💾 Export en JSON, CSV ou Markdown avec aperçu
+- 🌓 Mode clair / sombre
+- 🧠 Tout est stocké en **localStorage** (aucune donnée n’est envoyée en ligne)
+- 🎨 Interface responsive et légère
 
-STOCKTONPROMPT/
+---
+
+## 📂 Structure du projet
+
+```
+promptstocker/
 ├── index.html
 ├── scripts/
 │   └── promptstocker.js
 ├── styles/
 │   └── style.css
 ├── data/
-│   └── prompts.json
-├── assets/
-│   └── prompt_favicon.ico
-├── _headers         ✅ Sécurité CSP, anti-XSS
-├── _redirects       ✅ Redirection SPA
+│   └── prompts.json (exemple ou à ignorer)
+├── _headers (Netlify)
+├── _redirects (SPA routing)
 └── README.md
-
-
----
-
-## 🛡 Sécurité
-
-Cette application est pensée pour **éviter les failles les plus fréquentes** dans les applications web manipulant du contenu texte.
-
-| Type d’attaque              | Statut     | Détail |
-|----------------------------|------------|--------|
-| **XSS (injection HTML/JS)**| ✅ Protégé | via `sanitizeHTML()` sur toutes les données utilisateur |
-| **Injection CSV (Excel)**  | ✅ Protégé | les champs commencant par `=`, `+`, `@`, `-` sont automatiquement échappés |
-| **Clickjacking**           | ✅ Protégé | via directive CSP : `frame-ancestors 'none'` |
-| **Surcharge JSON**         | ✅ Protégé | validation stricte (`validatePrompt()`) et limite de taille locale |
-| **Sauts de ligne / `;` CSV**| ✅ Protégé | gestion correcte des guillemets et retours dans `promptsToCSV()` |
+```
 
 ---
 
-## 🧾 Content Security Policy (CSP)
+## 🛠️ Utilisation
 
-Le fichier HTML contient deux versions de la directive CSP :
+1. Clonez ce dépôt :
+   ```bash
+   git clone https://github.com/votre-utilisateur/promptstocker.git
+   ```
 
-Mode strict (à activer en ligne) 
+2. Ouvrez `index.html` dans votre navigateur. Aucun serveur requis.
 
-<!-- <meta http-equiv="Content-Security-Policy"
-      content="default-src 'self'; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self';">
--->
+3. C’est prêt à l’emploi !
 
-Mode souple pour développement local 
-<!-- <meta http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">-->
+---
 
+## 🔀 Forks et contributions
 
-## Lancement
+> Tu veux créer ta propre version ? N’hésite pas à forker ce dépôt.
 
-Ouvrir `index.html` dans le navigateur.
+Tu peux :
+- Créer une interface différente
+- Ajouter de nouvelles fonctionnalités (classement, tags, raccourcis clavier, IA simulée, etc.)
+- Personnaliser l’export, la sauvegarde, les animations
+- Supprimer ce que tu veux : ce dépôt est là pour être **bricolé**
+
+Tu peux aussi faire une **Pull Request** si tu veux proposer une amélioration à la branche `main`.  
+La branche `master` reste ma version personnelle de référence.
+
+---
+
+## 📜 Licence
+
+Projet sous licence **GNU GPLv3** – tout ce que tu crées à partir de ce code doit rester libre et ouvert.
+
+---
+
+## 📫 Contact
+
+Créé par [@Kiingsora](https://github.com/Kiingsora)  
+> Un projet né pour coder sans pression, partager sans limite, et apprendre ensemble.
