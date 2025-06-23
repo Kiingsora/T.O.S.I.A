@@ -3,7 +3,7 @@
 **Promptstocker** est une application web développée en **HTML / CSS / JavaScript pur**.  
 Elle permet de **gérer, stocker, importer et exporter des prompts IA** en local, sans serveur, sans framework, et sans installation.
 
-> 🎯 Projet vibe-coding et dans un cadre d'exploration créative, ce projet est totalement forkable, modifiable et open source.
+> 🎯 Projet vibe-coding dans un cadre d'exploration créative, ce projet est totalement forkable, modifiable et open source.
 
 ---
 
